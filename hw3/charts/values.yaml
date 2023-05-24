@@ -1,0 +1,13 @@
+
+back_server:
+  image: boristab/back_server:v3.0
+  port: 8080
+  replicas: 1
+
+front_server:
+  image: boristab/front_server:v2.0
+  env:
+    back_server_url: http://back-server:8080
+  port: 9090
+  replicas: 1
+  host: "*"
